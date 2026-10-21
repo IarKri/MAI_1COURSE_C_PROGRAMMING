@@ -6,8 +6,7 @@ union Number {
     unsigned long long bits;
 };
 
-int main(void)
-{
+int main(void) {
     //инициализация переменных
     union Number number;
     unsigned long long exponent;
@@ -20,8 +19,8 @@ int main(void)
     //получение знака
     sign = number.bits & (1ULL << 63);
 
-    //получение мантиссы
-    exponent = (number.bits >> 52) & 0x7FFULL;
+    //получение экспоненты
+    exponent = (number.bits >> 52) & 11111111111ULL;
     
     //получение мантиссы
     mantissa = number.bits & ((1ULL << 52) - 1);
